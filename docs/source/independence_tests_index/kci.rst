@@ -10,10 +10,22 @@ Z is set to the empty set.
 Usage
 --------
 .. code-block:: python
-
+    import numpy as np
     from causallearn.utils.cit import CIT
-    kci_obj = CIT(data, "kci") # construct a CIT instance with data and method name
-    pValue = kci_obj(X, Y, S)
+
+    data = np.random.rand(100, 5)
+
+    # X, Y are indices of columns, Z is an iterable of column indices
+    X = 0
+    Y = 1
+    Z = [2]  # Example of Z being iterable
+
+    # Construct a CIT instance with the data and method name
+    kci_obj = CIT(data, "kci")
+
+    # Perform the test with X, Y, and Z
+    pValue = kci_obj(X, Y, Z)
+
 
 The above code runs KCI with the default parameters. Or instead if you would like to specify some parameters of KCI, you may do it by e.g.,
 
